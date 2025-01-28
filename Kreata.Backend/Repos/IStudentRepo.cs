@@ -1,6 +1,7 @@
 ﻿using Kreata.Backend.Repos.Base;
 using Kreta.Shared.Enums;
 using Kreta.Shared.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Kreata.Backend.Repos
 {
@@ -8,5 +9,7 @@ namespace Kreata.Backend.Repos
     {
         public Task<Student> GetByNameAsync(string firstName, string lastName);
         public Task<List<Student>> GetStudentByClass(int schoolYear, SchoolClassType schoolClassType);
+        public Task<int> GetNumberOfStudentAsync();
+        //Task<int> GetStudentNumber(Func<Task<IActionResult>> getAllStudentAsync);
     }
 }

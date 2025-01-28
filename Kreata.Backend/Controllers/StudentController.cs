@@ -20,5 +20,11 @@ namespace Kreata.Backend.Controllers
         {
             return Ok(await _studentRepo.GetByNameAsync(fullNameDto.FirstName, fullNameDto.LastName));
         }
+
+        //[HttpGet("getstudentnumber")]
+        //public async Task<int> GetStudentNumber()
+        //{
+        //    return Ok(await _studentRepo.GetStudentNumber(GetAllStudentAsync));
+        //}
     }
 }
