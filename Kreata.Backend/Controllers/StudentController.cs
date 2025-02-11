@@ -40,9 +40,9 @@ namespace Kreata.Backend.Controllers
         }
 
         [HttpGet("GetNumberOfStudentByBirthYear")]
-        public async Task<IActionResult> GetNumberOfStudentByBirthYearAsync()
+        public async Task<IActionResult> GetNumberOfStudentBirthIn2021Async()
         {
-            return Ok(await _studentRepo.GetNumberOfStudentByBirthYearAsync());
+            return Ok(await _studentRepo.GetNumberOfStudentBirthIn2021Async());
         }
 
         [HttpGet("GetNumberOfStudentBornInApril")]
@@ -51,5 +51,16 @@ namespace Kreata.Backend.Controllers
             return Ok(await _studentRepo.GetNumberOfStudentBornInAprilAsync());
         }
 
+        [HttpGet("NumberOfStudentByYear/{year}")]
+        public async Task<IActionResult> GetNumberOfStudentByYearAsync(int year)
+        {
+            return Ok(await _studentRepo.GetNumberOfStudentByYearAsync(year));
+        }
+
+        [HttpGet("NumberOfStudentByYearAndMonth/{year}/{month}")]
+        public async Task<IActionResult> GetNumberOfStudentByYearAndMonthAsync(int year, int month)
+        {
+            return Ok(await _studentRepo.GetNumberOfStudentByYearAndMonthAsync(year, month));
+        }
     }
 }

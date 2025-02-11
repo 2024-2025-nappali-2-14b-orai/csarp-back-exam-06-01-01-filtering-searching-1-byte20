@@ -33,7 +33,7 @@ namespace Kreata.Backend.Repos
             return await _dbSet!.CountAsync(s => s.BirthsDay.Month == 4);
         }
 
-        public async Task<int> GetNumberOfStudentByBirthYearAsync()
+        public async Task<int> GetNumberOfStudentBirthIn2021Async()
         {
             return await _dbSet!.CountAsync(s => s.BirthsDay.Year == 2021);
         }
@@ -47,6 +47,17 @@ namespace Kreata.Backend.Repos
         {
             return await _dbSet!
                 .FindByCondition<Student>(s =>s.SchoolYear==schoolYear && s.SchoolClass==schoolClassType).ToListAsync();
+        }
+
+        public async Task<int> GetNumberOfStudentByYearAsync(int year)
+        {
+            return await _dbSet!.CountAsync(s => s.BirthsDay.Year == year);
+        }
+
+
+        public async Task<int> GetNumberOfStudentByYearAndMonthAsync(int year, int month)
+        {
+            return await _dbSet!.CountAsync(s => s.BirthsDay.Year == year && s.BirthsDay.Month == month);
         }
     }
 }
